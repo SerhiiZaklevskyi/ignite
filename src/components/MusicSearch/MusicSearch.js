@@ -17,12 +17,18 @@ class MusicSearch extends React.Component {
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
   }
-  search() {
+  search(inputValue) {
     fetch("./songs.json", {
       cache: "no-store"
     })
       .then(res => res.json())
-      .then(data => this.setState({searchTracks: data}));
+      .then(data =>
+        this.setState({
+          searchTracks: data.filter(
+            currentTrack => currentTrack.name === inputValue
+          )
+        })
+      );
   }
 
   addTrack(track) {
