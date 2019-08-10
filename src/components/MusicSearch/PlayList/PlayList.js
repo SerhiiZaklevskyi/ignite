@@ -6,7 +6,6 @@ class PlayList extends React.Component {
   render() {
     return (
       <div className={styles.playList}>
-        <TrackList tracks={this.props.playlistTracks} />
         <span>
           <input
             type='text'
@@ -14,7 +13,11 @@ class PlayList extends React.Component {
             className={styles.playlistName}
           />
         </span>
-
+        <TrackList
+          tracks={this.props.playlistTracks}
+          isRemoval={true}
+          onRemove={this.props.onRemove}
+        />
         <button className={styles.save}>Save</button>
       </div>
     );
