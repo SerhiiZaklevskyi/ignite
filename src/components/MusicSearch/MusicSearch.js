@@ -9,7 +9,8 @@ class MusicSearch extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playlistTracks: []
+      playlistTracks: [],
+      searchTracks: []
     };
 
     this.search = this.search.bind(this);
@@ -19,15 +20,15 @@ class MusicSearch extends React.Component {
       cache: "no-store"
     })
       .then(res => res.json())
-      .then(data => console.log(data));
+      .then(data => this.setState({searchTracks: data}));
   }
   render() {
     return (
       <div>
         <SearchBar onSearch={this.search} />
         <div className={styles.wrapper}>
-          <SearchResults />
-          <PlayList />
+          <SearchResults searchResults={this.state.searchTracks} />
+          <PlayList playlistTracks={this.state.playlistTracks} />
         </div>
       </div>
     );
