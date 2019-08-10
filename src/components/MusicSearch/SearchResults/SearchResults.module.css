@@ -1,0 +1,16 @@
+.searchResults {
+  background-color: rgb(3, 3, 24);
+  border: 1px solid rgba(0, 153, 255, 0.842);
+  opacity: 0.7;
+  box-shadow: 6px 6px 2px grey;
+  width: 40%;
+  margin-right: 3rem;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  padding-top: 1rem;
+}

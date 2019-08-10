@@ -1,0 +1,22 @@
+.Track {
+  border-bottom: 2px solid white;
+}
+
+.songName,
+.artistName {
+  font-weight: bold;
+  color: white;
+  padding-top: 0.7rem;
+}
+
+.trackAction {
+  cursor: pointer;
+  font-size: 1.5rem;
+  border: 0;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+  position: relative;
+  left: 90%;
+  bottom: 2rem;
+  color: white;
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "id":1,
+    "name":"The Unforgiven",
+    "artist":"Metallica"
+  },
+  {
+    "id":2,
+    "name":"Nothing Else Matters",
+    "artist":"Metallica"
+  },  {
+    "id":3,
+    "name":"Fuel",
+    "artist":"Metallica"
+  },  {
+    "id":4,
+    "name":"Enter Sandman",
+    "artist":"Metallica"
+  },  {
+    "id":5,
+    "name":"Whiskey In The Jar",
+    "artist":"Metallica"
+  },  {
+    "id":6,
+    "name":"Fade To Black",
+    "artist":"Metallica"
+  },  {
+    "id":7,
+    "name":"Die, Die My Darling",
+    "artist":"Metallica"
+  },  {
+    "id":8,
+    "name":"Sad But True",
+    "artist":"Metallica"
+  },  {
+    "id":9,
+    "name":"Turn The Page",
+    "artist":"Metallica"
+  },  {
+    "id":10,
+    "name":"I Disappear",
+    "artist":"Metallica"
+  },
+  {
+  	"id": 11,
+  	"name": "Till I Collapse",
+  	"artist": "Eminem"
+  },
+    {
+  	"id": 12,
+  	"name": "Lose Yourself",
+  	"artist": "Eminem"
+  },
+    {
+  	"id": 13,
+  	"name": "Not Afraid",
+  	"artist": "Eminem"
+  },
+    {
+  	"id": 14,
+  	"name": "Mockingbird",
+  	"artist": "Eminem"
+  },
+    {
+  	"id": 15,
+  	"name": "Without Me",
+  	"artist": "Eminem"
+  },
+    {
+  	"id": 16,
+  	"name": "Rap God",
+  	"artist": "Eminem"
+  },
+    {
+  	"id": 17,
+  	"name": "Ass Like That",
+  	"artist": "Eminem"
+  },
+    {
+  	"id": 18,
+  	"name": "The Real Slim Shady",
+  	"artist": "Eminem"
+  },
+    {
+  	"id": 19,
+  	"name": "Superman",
+  	"artist": "Eminem"
+  }
+  
+]

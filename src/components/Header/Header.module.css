@@ -1,0 +1,17 @@
+.wrapper {
+  padding-top: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  color: rgb(83, 244, 255);
+  font-size: 2rem;
+  padding-left: 35%;
+  padding-right: 35%;
+}
+
+.header span:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,33 @@
+.playList {
+  background-color: rgb(3, 3, 24);
+  border: 1px solid rgba(0, 153, 255, 0.842);
+  opacity: 0.7;
+  box-shadow: 6px 6px 2px grey;
+  width: 40%;
+  margin-left: 3rem;
+}
+
+.save {
+  position: relative;
+  left: 40%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 3rem;
+  border-radius: 5px;
+  background-color: rgb(3, 3, 24);
+  color: white;
+}
+
+.playlistName {
+  position: relative;
+  left: 34%;
+  background-color: transparent;
+  text-align: center;
+  color: white;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  outline: none;
+}
