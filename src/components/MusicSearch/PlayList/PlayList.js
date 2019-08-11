@@ -11,6 +11,7 @@ class PlayList extends React.Component {
             type='text'
             placeholder='Enter a playlist name'
             className={styles.playlistName}
+            onChange={this.props.onChange}
           />
         </span>
         <TrackList
@@ -18,7 +19,9 @@ class PlayList extends React.Component {
           isRemoval={true}
           onRemove={this.props.onRemove}
         />
-        <button className={styles.save}>Save</button>
+        <button className={styles.save} onClick={this.props.onSave}>
+          Save
+        </button>
       </div>
     );
   }

@@ -10,12 +10,24 @@ class App extends React.Component {
     super(props);
     this.state = {
       playlistTracks: [],
-      searchTracks: []
+      searchTracks: [],
+      savedTracks: [],
+      playlistName: ""
     };
 
     this.search = this.search.bind(this);
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
+    this.save = this.save.bind(this);
+    this.removeMyTrack = this.removeMyTrack.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({playlistName: event.target.value});
+  }
+  save() {
+    this.setState({savedTracks: this.state.playlistTracks});
   }
   search(inputValue) {
     fetch("./songs.json", {
@@ -46,6 +58,13 @@ class App extends React.Component {
 
     this.setState({playlistTracks: tracks});
   }
+
+  removeMyTrack(track) {
+    let tracks = this.state.savedTracks;
+    tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
+
+    this.setState({savedTracks: tracks});
+  }
   render() {
     return (
       <div className={styles.App}>
@@ -56,8 +75,14 @@ class App extends React.Component {
           onAdd={this.addTrack}
           playlistTracks={this.state.playlistTracks}
           onRemove={this.removeTrack}
+          onSave={this.save}
+          onChange={this.handleChange}
         />
-        <MyPlaylists />
+        <MyPlaylists
+          tracks={this.state.savedTracks}
+          onRemove={this.removeMyTrack}
+          nameUpdate={this.state.playlistName}
+        />
         <Footer />
       </div>
     );

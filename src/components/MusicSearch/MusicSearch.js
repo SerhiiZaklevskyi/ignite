@@ -18,6 +18,8 @@ class MusicSearch extends React.Component {
           <PlayList
             playlistTracks={this.props.playlistTracks}
             onRemove={this.props.onRemove}
+            onSave={this.props.onSave}
+            onChange={this.props.onChange}
           />
         </div>
       </div>
