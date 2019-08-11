@@ -4,6 +4,7 @@ import styles from "./App.module.css";
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
 import MyPlaylists from "../MyPlaylists/MyPlaylists";
+import {BrowserRouter, Route} from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -67,24 +68,39 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className={styles.App}>
-        <Header />
-        <MusicSearch
-          onSearch={this.search}
-          searchResults={this.state.searchTracks}
-          onAdd={this.addTrack}
-          playlistTracks={this.state.playlistTracks}
-          onRemove={this.removeTrack}
-          onSave={this.save}
-          onChange={this.handleChange}
-        />
-        <MyPlaylists
-          tracks={this.state.savedTracks}
-          onRemove={this.removeMyTrack}
-          nameUpdate={this.state.playlistName}
-        />
-        <Footer />
-      </div>
+      <BrowserRouter>
+        <div className={styles.App}>
+          <Header />
+          <Route
+            exact
+            path='/'
+            render={props => (
+              <MusicSearch
+                {...props}
+                onSearch={this.search}
+                searchResults={this.state.searchTracks}
+                onAdd={this.addTrack}
+                playlistTracks={this.state.playlistTracks}
+                onRemove={this.removeTrack}
+                onSave={this.save}
+                onChange={this.handleChange}
+              />
+            )}
+          />
+          <Route
+            path='/MyPlaylists'
+            render={props => (
+              <MyPlaylists
+                {...props}
+                tracks={this.state.savedTracks}
+                onRemove={this.removeMyTrack}
+                nameUpdate={this.state.playlistName}
+              />
+            )}
+          />
+          <Footer />
+        </div>
+      </BrowserRouter>
     );
   }
 }

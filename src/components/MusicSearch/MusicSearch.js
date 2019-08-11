@@ -8,7 +8,7 @@ import PlayList from "./PlayList/PlayList";
 class MusicSearch extends React.Component {
   render() {
     return (
-      <div>
+      <div className={styles.content}>
         <SearchBar onSearch={this.props.onSearch} />
         <div className={styles.wrapper}>
           <SearchResults
