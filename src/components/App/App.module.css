@@ -3,5 +3,52 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 31rem;
+}
+
+@media screen and (max-width: 1150px) {
+  html {
+    font-size: 13px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 10px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  html {
+    font-size: 9px;
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  html {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 2100px) {
+  html {
+    font-size: 25px;
+  }
+}
+
+@media screen and (min-width: 2800px) {
+  html {
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 3200px) {
+  html {
+    font-size: 32px;
+  }
 }

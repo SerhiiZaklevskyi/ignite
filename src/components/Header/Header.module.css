@@ -20,3 +20,10 @@
   color: rgb(83, 244, 255);
   text-decoration: none;
 }
+
+@media screen and (max-width: 640px) {
+  .header {
+    padding-left: 20%;
+    padding-right: 20%;
+  }
+}
