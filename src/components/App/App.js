@@ -13,7 +13,7 @@ class App extends React.Component {
       playlistTracks: [],
       searchTracks: [],
       savedTracks: [],
-      playlistName: ""
+      playlistName: "New Playlist"
     };
 
     this.search = this.search.bind(this);

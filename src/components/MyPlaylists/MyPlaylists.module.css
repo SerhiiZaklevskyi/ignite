@@ -1,10 +1,14 @@
 .MyPlayList {
-  display: flex;
-  justify-content: space-between;
   padding-left: 10%;
   padding-right: 10%;
 }
 
 .wrapper {
   min-height: calc(100vh - 10rem);
+}
+
+.emptyPlaylist {
+  color: rgb(83, 244, 255);
+  text-align: center;
+  font-size: 3rem;
 }
