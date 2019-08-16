@@ -11,8 +11,10 @@ class MyTrack extends React.Component {
   render() {
     return (
       <div className={styles.Track}>
-        <p className={styles.songName}>{this.props.track.name}</p>
-        <p className={styles.artistName}>{this.props.track.artist}</p>
+        <p className={styles.songName}>{this.props.track.title}</p>
+        <p className={styles.artistName}>
+          {this.props.track.artist} || {this.props.track.album}
+        </p>
         <div>
           <button className={styles.remove} onClick={this.removeMyTrack}>
             -

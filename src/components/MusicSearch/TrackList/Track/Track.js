@@ -33,7 +33,9 @@ class Track extends React.Component {
     return (
       <div className={styles.Track}>
         <p className={styles.songName}>{this.props.track.title}</p>
-        <p className={styles.artistName}>{this.props.track.artist}</p>
+        <p className={styles.artistName}>
+          {this.props.track.artist} || {this.props.track.album}
+        </p>
         <div>{this.renderAction()}</div>
       </div>
     );

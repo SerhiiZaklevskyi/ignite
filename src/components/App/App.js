@@ -40,14 +40,16 @@ class App extends React.Component {
       .then(res => res.json())
       .then(data =>
         this.setState({
-          searchTracks: data.result
+          searchTracks: data.result.filter(track =>
+            track.title.toUpperCase().includes(inputValue.toUpperCase())
+          )
         })
       );
   }
 
   addTrack(track) {
     let tracks = this.state.playlistTracks;
-    if (tracks.find(savedTrack => savedTrack.id === track.track_id)) {
+    if (tracks.find(savedTrack => savedTrack.track_id === track.track_id)) {
       return;
     }
     tracks.push(track);
@@ -56,14 +58,18 @@ class App extends React.Component {
 
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
-    tracks = tracks.filter(currentTrack => currentTrack.id !== track.track_id);
+    tracks = tracks.filter(
+      currentTrack => currentTrack.track_id !== track.track_id
+    );
 
     this.setState({playlistTracks: tracks});
   }
 
   removeMyTrack(track) {
     let tracks = this.state.savedTracks;
-    tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
+    tracks = tracks.filter(
+      currentTrack => currentTrack.track_id !== track.track_id
+    );
 
     this.setState({savedTracks: tracks});
   }
