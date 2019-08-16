@@ -31,22 +31,23 @@ class App extends React.Component {
     this.setState({savedTracks: this.state.playlistTracks});
   }
   search(inputValue) {
-    fetch("./songs.json", {
-      cache: "no-store"
-    })
+    fetch(
+      `https://orion.apiseeds.com/api/music/search/?q=${inputValue}&apikey=TTAxFFMk2RVmqsMpI2OObfFnYcWqV3rnsjMiSC7ZUlOjms9z4oADgMHmJIWX3yOL`,
+      {
+        cache: "no-store"
+      }
+    )
       .then(res => res.json())
       .then(data =>
         this.setState({
-          searchTracks: data.filter(
-            currentTrack => currentTrack.name === inputValue
-          )
+          searchTracks: data.result
         })
       );
   }
 
   addTrack(track) {
     let tracks = this.state.playlistTracks;
-    if (tracks.find(savedTrack => savedTrack.id === track.id)) {
+    if (tracks.find(savedTrack => savedTrack.id === track.track_id)) {
       return;
     }
     tracks.push(track);
@@ -55,7 +56,7 @@ class App extends React.Component {
 
   removeTrack(track) {
     let tracks = this.state.playlistTracks;
-    tracks = tracks.filter(currentTrack => currentTrack.id !== track.id);
+    tracks = tracks.filter(currentTrack => currentTrack.id !== track.track_id);
 
     this.setState({playlistTracks: tracks});
   }
