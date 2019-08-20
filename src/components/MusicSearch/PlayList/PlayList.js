@@ -24,6 +24,7 @@ class PlayList extends React.Component {
             Save
           </button>
         </span>
+        <h1>{this.props.saveMsg}</h1>
       </div>
     );
   }

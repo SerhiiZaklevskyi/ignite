@@ -20,6 +20,7 @@ class MusicSearch extends React.Component {
             onRemove={this.props.onRemove}
             onSave={this.props.onSave}
             onChange={this.props.onChange}
+            saveMsg={this.props.saveMsg}
           />
         </div>
       </div>

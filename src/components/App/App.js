@@ -13,7 +13,8 @@ class App extends React.Component {
       playlistTracks: [],
       searchTracks: [],
       savedTracks: [],
-      playlistName: "New Playlist"
+      playlistName: "New Playlist",
+      saveMsg: ""
     };
 
     this.search = this.search.bind(this);
@@ -22,15 +23,39 @@ class App extends React.Component {
     this.save = this.save.bind(this);
     this.removeMyTrack = this.removeMyTrack.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.saveMsgAction = this.saveMsgAction.bind(this);
+  }
+
+  componentDidMount() {
+    if (localStorage.length > 0) {
+      this.setState({
+        savedTracks: JSON.parse(localStorage.getItem("playlist"))
+      });
+    }
+  }
+
+  saveMsgAction() {
+    if (this.state.playlistTracks.length > 0) {
+      this.setState({saveMsg: "Playlist saved"});
+    } else {
+      this.setState({saveMsg: "Add at least one track"});
+    }
+  }
+
+  save() {
+    this.setState({savedTracks: this.state.playlistTracks});
+    this.setState({playlistTracks: []}, () =>
+      localStorage.setItem("playlist", JSON.stringify(this.state.savedTracks))
+    );
+    this.saveMsgAction();
   }
 
   handleChange(event) {
     this.setState({playlistName: event.target.value});
   }
-  save() {
-    this.setState({savedTracks: this.state.playlistTracks});
-  }
+
   search(inputValue) {
+    this.setState({saveMsg: ""});
     fetch(
       `https://orion.apiseeds.com/api/music/search/?q=${inputValue}&apikey=TTAxFFMk2RVmqsMpI2OObfFnYcWqV3rnsjMiSC7ZUlOjms9z4oADgMHmJIWX3yOL`,
       {
@@ -91,6 +116,7 @@ class App extends React.Component {
                 onRemove={this.removeTrack}
                 onSave={this.save}
                 onChange={this.handleChange}
+                saveMsg={this.state.saveMsg}
               />
             )}
           />
