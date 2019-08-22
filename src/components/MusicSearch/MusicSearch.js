@@ -14,6 +14,7 @@ class MusicSearch extends React.Component {
           <SearchResults
             searchResults={this.props.searchResults}
             onAdd={this.props.onAdd}
+            errorMsg={this.props.errorMsg}
           />
           <PlayList
             playlistTracks={this.props.playlistTracks}

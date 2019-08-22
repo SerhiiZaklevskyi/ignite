@@ -14,7 +14,8 @@ class App extends React.Component {
       searchTracks: [],
       savedTracks: [],
       playlistName: "New Playlist",
-      saveMsg: ""
+      saveMsg: "",
+      errorMsg: ""
     };
 
     this.search = this.search.bind(this);
@@ -56,6 +57,7 @@ class App extends React.Component {
 
   search(inputValue) {
     this.setState({saveMsg: ""});
+    this.setState({errorMsg: ""});
     fetch(
       `https://orion.apiseeds.com/api/music/search/?q=${inputValue}&apikey=TTAxFFMk2RVmqsMpI2OObfFnYcWqV3rnsjMiSC7ZUlOjms9z4oADgMHmJIWX3yOL`,
       {
@@ -63,11 +65,26 @@ class App extends React.Component {
       }
     )
       .then(res => res.json())
-      .then(data =>
+      .then(res => {
+        if (res.success === false) {
+          return Promise.reject(new Error("Not found"));
+        }
+        return Promise.resolve(res);
+      })
+      .then(data => {
+        if (inputValue === "") {
+          return;
+        } else {
+          this.setState({
+            searchTracks: data.result.filter(track =>
+              track.title.toUpperCase().includes(inputValue.toUpperCase())
+            )
+          });
+        }
+      })
+      .catch(error =>
         this.setState({
-          searchTracks: data.result.filter(track =>
-            track.title.toUpperCase().includes(inputValue.toUpperCase())
-          )
+          errorMsg: error.message
         })
       );
   }
@@ -117,6 +134,7 @@ class App extends React.Component {
                 onSave={this.save}
                 onChange={this.handleChange}
                 saveMsg={this.state.saveMsg}
+                errorMsg={this.state.errorMsg}
               />
             )}
           />
