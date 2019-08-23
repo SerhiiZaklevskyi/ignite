@@ -1,19 +1,18 @@
 import React from "react";
 import styles from "./MyPlayList.module.css";
-import MyTrackList from "./MyTrackList/MyTrackList";
+import TrackList from "../../MusicSearch/TrackList/TrackList";
 
-class MyPlayList extends React.Component {
-  render() {
-    return (
-      <div className={styles.playList}>
-        <h1>{this.props.nameUpdate}</h1>
-        <MyTrackList
-          tracks={this.props.tracks}
-          onRemove={this.props.onRemove}
-        />
-      </div>
-    );
-  }
-}
+const MyPlayList = props => {
+  return (
+    <div className={styles.playList}>
+      <h1>{props.nameUpdate}</h1>
+      <TrackList
+        isRemoval={true}
+        tracks={props.tracks}
+        onRemove={props.onRemove}
+      />
+    </div>
+  );
+};
 
 export default MyPlayList;

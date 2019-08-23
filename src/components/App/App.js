@@ -58,6 +58,7 @@ class App extends React.Component {
   search(inputValue) {
     this.setState({saveMsg: ""});
     this.setState({errorMsg: ""});
+    this.setState({searchTracks: []});
     fetch(
       `https://orion.apiseeds.com/api/music/search/?q=${inputValue}&apikey=TTAxFFMk2RVmqsMpI2OObfFnYcWqV3rnsjMiSC7ZUlOjms9z4oADgMHmJIWX3yOL`,
       {

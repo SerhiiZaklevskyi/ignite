@@ -8,20 +8,6 @@
   left: 30%;
 }
 
-.playlistName {
-  position: relative;
-  left: 34%;
-  background-color: transparent;
-  text-align: center;
-  color: white;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  border-top: none;
-  border-right: none;
-  border-left: none;
-  outline: none;
-}
-
 h1 {
   font-size: 2rem;
   text-align: center;

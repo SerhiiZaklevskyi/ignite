@@ -2,32 +2,30 @@ import React from "react";
 import styles from "./PlayList.module.css";
 
 import TrackList from "../../MusicSearch/TrackList/TrackList.js";
-class PlayList extends React.Component {
-  render() {
-    return (
-      <div className={styles.playList}>
-        <span className={styles.wrapper}>
-          <input
-            type='text'
-            placeholder='Enter a playlist name'
-            className={styles.playlistName}
-            onChange={this.props.onChange}
-          />
-        </span>
-        <TrackList
-          tracks={this.props.playlistTracks}
-          isRemoval={true}
-          onRemove={this.props.onRemove}
+const PlayList = props => {
+  return (
+    <div className={styles.playList}>
+      <span className={styles.wrapper}>
+        <input
+          type='text'
+          placeholder='Enter a playlist name'
+          className={styles.playlistName}
+          onChange={props.onChange}
         />
-        <span className={styles.btn_wrapper}>
-          <button className={styles.save} onClick={this.props.onSave}>
-            Save
-          </button>
-        </span>
-        <h1>{this.props.saveMsg}</h1>
-      </div>
-    );
-  }
-}
+      </span>
+      <TrackList
+        tracks={props.playlistTracks}
+        isRemoval={true}
+        onRemove={props.onRemove}
+      />
+      <span className={styles.btn_wrapper}>
+        <button className={styles.save} onClick={props.onSave}>
+          Save
+        </button>
+      </span>
+      <h1>{props.saveMsg}</h1>
+    </div>
+  );
+};
 
 export default PlayList;
