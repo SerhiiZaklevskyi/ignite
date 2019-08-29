@@ -5,6 +5,7 @@ import Header from "../../components/Header/Header.js";
 import Footer from "../../components/Footer/Footer";
 import MyPlaylists from "../../components/MyPlaylists/MyPlaylists";
 import {BrowserRouter, Route} from "react-router-dom";
+import {connect} from "react-redux";
 
 class App extends React.Component {
   constructor(props) {
@@ -22,4 +23,11 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const mapStateToProps = state => {};
+
+const mapDispatchToProps = dispatch => {};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
