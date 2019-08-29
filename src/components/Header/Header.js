@@ -6,16 +6,8 @@ const Header = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.header}>
-        <span>
-          <Link to='/MyPlaylists' className={styles.link}>
-            My Playlists
-          </Link>
-        </span>
-        <span>
-          <Link to='/' className={styles.link}>
-            Music
-          </Link>
-        </span>
+        <span className={styles.link}>My Playlists</span>
+        <span className={styles.link}>Music</span>
       </div>
     </div>
   );

@@ -7,12 +7,8 @@ const SearchResults = props => {
   return (
     <div className={styles.searchResults}>
       <h1>Results</h1>
-      <h1>{props.errorMsg}</h1>
-      <TrackList
-        tracks={props.searchResults}
-        onAdd={props.onAdd}
-        isRemoval={false}
-      />
+      <h1></h1>
+      <TrackList />
     </div>
   );
 };

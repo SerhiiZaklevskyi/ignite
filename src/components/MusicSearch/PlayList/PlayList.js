@@ -10,20 +10,13 @@ const PlayList = props => {
           type='text'
           placeholder='Enter a playlist name'
           className={styles.playlistName}
-          onChange={props.onChange}
         />
       </span>
-      <TrackList
-        tracks={props.playlistTracks}
-        isRemoval={true}
-        onRemove={props.onRemove}
-      />
+      <TrackList />
       <span className={styles.btn_wrapper}>
-        <button className={styles.save} onClick={props.onSave}>
-          Save
-        </button>
+        <button className={styles.save}>Save</button>
       </span>
-      <h1>{props.saveMsg}</h1>
+      <h1></h1>
     </div>
   );
 };

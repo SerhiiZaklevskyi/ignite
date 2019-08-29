@@ -5,12 +5,8 @@ import TrackList from "../../MusicSearch/TrackList/TrackList";
 const MyPlayList = props => {
   return (
     <div className={styles.playList}>
-      <h1>{props.nameUpdate}</h1>
-      <TrackList
-        isRemoval={true}
-        tracks={props.tracks}
-        onRemove={props.onRemove}
-      />
+      <h1></h1>
+      <TrackList />
     </div>
   );
 };
