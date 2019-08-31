@@ -8,7 +8,7 @@ const SearchResults = props => {
     <div className={styles.searchResults}>
       <h1>Results</h1>
       <h1></h1>
-      <TrackList />
+      <TrackList tracks={props.searchResult} />
     </div>
   );
 };

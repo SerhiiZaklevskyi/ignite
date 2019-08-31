@@ -8,8 +8,8 @@ class Track extends React.Component {
   render() {
     return (
       <div className={styles.Track}>
-        <p className={styles.songName}></p>
-        <p className={styles.artistName}></p>
+        <p className={styles.songName}>{this.props.track.name}</p>
+        <p className={styles.artistName}>{this.props.track.artist}</p>
         <div></div>
       </div>
     );

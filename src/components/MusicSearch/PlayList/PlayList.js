@@ -12,7 +12,7 @@ const PlayList = props => {
           className={styles.playlistName}
         />
       </span>
-      <TrackList />
+      {/* <TrackList />*/}
       <span className={styles.btn_wrapper}>
         <button className={styles.save}>Save</button>
       </span>

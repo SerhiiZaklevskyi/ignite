@@ -1,6 +1,7 @@
 export const MUSIC_REQUEST = "MUSIC_REQUEST";
 export const MUSIC_RESPONSE = "MUSIC_RESPONSE";
 export const MUSIC_ERROR = "MUSIC_ERROR";
+export const INPUT_HANDLE = "INPUT_HANDLE";
 
 export function musicRequest() {
   return {
