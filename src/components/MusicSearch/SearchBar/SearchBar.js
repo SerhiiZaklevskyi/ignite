@@ -8,9 +8,15 @@ class SearchBar extends React.Component {
       inputValue: ""
     };
 
+    this.textInput = React.createRef();
+
     this.handleChange = this.handleChange.bind(this);
     this.search = this.search.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+
+  componentDidMount() {
+    this.textInput.current.focus();
   }
 
   search() {
@@ -31,6 +37,7 @@ class SearchBar extends React.Component {
     return (
       <div className={styles.searchBar}>
         <input
+          ref={this.textInput}
           onChange={this.handleChange}
           type='text'
           placeholder='Enter a Song  name'
