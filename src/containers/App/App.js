@@ -7,12 +7,18 @@ import MyPlaylists from "../../components/MyPlaylists/MyPlaylists";
 import {BrowserRouter, Route} from "react-router-dom";
 import {connect} from "react-redux";
 import {fetchMusic} from "../logic/logic";
+import {addTracks} from "../logic/logic";
 
 const App = props => {
   return (
     <div className={styles.App}>
       <Header />
-      <MusicSearch search={props.fetchData} searchResult={props.music} />
+      <MusicSearch
+        search={props.fetchData}
+        searchResult={props.music}
+        addTrack={props.addTracks}
+        playlistTracks={props.playlistTracks}
+      />
       <MyPlaylists />
       <Footer />
     </div>
@@ -23,13 +29,15 @@ const mapStateToProps = state => {
   return {
     isFetching: state.fetchMusic.isFetching,
     error: state.fetchMusic.error,
-    music: state.fetchMusic.music
+    music: state.fetchMusic.music,
+    playlistTracks: state.trackAction.playlistTracks
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchData: () => dispatch(fetchMusic())
+    fetchData: () => dispatch(fetchMusic()),
+    addTracks: () => dispatch(addTracks())
   };
 };
 

@@ -10,8 +10,11 @@ const MusicSearch = props => {
     <div className={styles.content}>
       <SearchBar search={props.search} inputValue={props.inputValue} />
       <div className={styles.wrapper}>
-        <SearchResults searchResult={props.searchResult} />
-        <PlayList />
+        <SearchResults
+          searchResult={props.searchResult}
+          addTrack={props.addTrack}
+        />
+        <PlayList playlistTracks={props.playlistTracks} />
       </div>
     </div>
   );

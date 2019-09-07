@@ -4,7 +4,9 @@ import {
   musicError
 } from "../../actions/fetchAction";
 
-export function fetchMusic() {
+import {addTrack} from "../../actions/trackAction";
+
+export function fetchMusic(inputValue) {
   return dispatch => {
     dispatch(musicRequest());
     fetch("songs.json")
@@ -18,5 +20,11 @@ export function fetchMusic() {
       .catch(err => {
         dispatch(musicError(err));
       });
+  };
+}
+
+export function addTracks(playlistTracks, track) {
+  return dispatch => {
+    dispatch(addTrack(track));
   };
 }
