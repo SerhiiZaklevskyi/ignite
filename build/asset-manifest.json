@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/ignite/static/css/main.e070beb3.chunk.css",
+    "main.js": "/ignite/static/js/main.7120311b.chunk.js",
+    "main.js.map": "/ignite/static/js/main.7120311b.chunk.js.map",
+    "runtime~main.js": "/ignite/static/js/runtime~main.7aa35dbc.js",
+    "runtime~main.js.map": "/ignite/static/js/runtime~main.7aa35dbc.js.map",
+    "static/js/2.d19b1d5f.chunk.js": "/ignite/static/js/2.d19b1d5f.chunk.js",
+    "static/js/2.d19b1d5f.chunk.js.map": "/ignite/static/js/2.d19b1d5f.chunk.js.map",
+    "index.html": "/ignite/index.html",
+    "precache-manifest.6900136b7b08856b5f103bb636437467.js": "/ignite/precache-manifest.6900136b7b08856b5f103bb636437467.js",
+    "service-worker.js": "/ignite/service-worker.js",
+    "static/css/main.e070beb3.chunk.css.map": "/ignite/static/css/main.e070beb3.chunk.css.map",
+    "static/media/App.module.css": "/ignite/static/media/319256.a6b484d1.jpg"
+  }
+}

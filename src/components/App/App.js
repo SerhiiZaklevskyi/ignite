@@ -4,7 +4,7 @@ import styles from "./App.module.css";
 import Header from "../Header/Header.js";
 import Footer from "../Footer/Footer.js";
 import MyPlaylists from "../MyPlaylists/MyPlaylists";
-import {BrowserRouter, Route} from "react-router-dom";
+import {HashRouter, Route} from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -118,7 +118,7 @@ class App extends React.Component {
   }
   render() {
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className={styles.App}>
           <Header />
           <Route
@@ -152,7 +152,7 @@ class App extends React.Component {
           />
           <Footer />
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
