@@ -2,7 +2,8 @@ import {
   MUSIC_REQUEST,
   MUSIC_RESPONSE,
   MUSIC_ERROR,
-  GET_INPUT
+  GET_INPUT,
+  CLEAR_RESULTS
 } from "../actions/fetchAction";
 
 const initialState = {
@@ -22,6 +23,8 @@ export function fetchReducer(state = initialState, action) {
       return {...state, isFetching: false, error: action.payload};
     case GET_INPUT:
       return {...state, searchValue: action.payload};
+    case CLEAR_RESULTS:
+      return {...state, music: [], error: null};
 
     default:
       return state;

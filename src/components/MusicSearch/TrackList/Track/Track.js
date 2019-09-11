@@ -5,10 +5,15 @@ class Track extends React.Component {
   constructor(props) {
     super(props);
     this.addTrack = this.addTrack.bind(this);
+    this.removeTrack = this.removeTrack.bind(this);
   }
 
   addTrack() {
     this.props.addTrack(this.props.track);
+  }
+
+  removeTrack() {
+    this.props.removeTrack(this.props.track);
   }
 
   renderAction() {
@@ -29,8 +34,10 @@ class Track extends React.Component {
   render() {
     return (
       <div className={styles.Track}>
-        <p className={styles.songName}>{this.props.track.name}</p>
-        <p className={styles.artistName}>{this.props.track.artist}</p>
+        <p className={styles.songName}>{this.props.track.title}</p>
+        <p className={styles.artistName}>
+          {this.props.track.artist} || {this.props.track.album}
+        </p>
         <div>{this.renderAction()}</div>
       </div>
     );

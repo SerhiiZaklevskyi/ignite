@@ -4,27 +4,30 @@ import {
   musicError
 } from "../../actions/fetchAction";
 
-import {addTrack} from "../../actions/trackAction";
-
 export function fetchMusic(inputValue) {
   return dispatch => {
     dispatch(musicRequest());
-    fetch("songs.json")
+    fetch(
+      `https://orion.apiseeds.com/api/music/search/?q=${inputValue}&apikey=TTAxFFMk2RVmqsMpI2OObfFnYcWqV3rnsjMiSC7ZUlOjms9z4oADgMHmJIWX3yOL`
+    )
       .then(res => res.json())
-      .then(data => {
-        if (data.error) {
-          throw data.error;
+      .then(res => {
+        if (res.success === false) {
+          return Promise.reject(new Error("Not found"));
         }
-        dispatch(musicResponse(data));
+        return Promise.resolve(res);
+      })
+      .then(data => {
+        dispatch(
+          musicResponse(
+            data.result.filter(track =>
+              track.title.toUpperCase().includes(inputValue.toUpperCase())
+            )
+          )
+        );
       })
       .catch(err => {
-        dispatch(musicError(err));
+        dispatch(musicError(err.message));
       });
-  };
-}
-
-export function addTracks(playlistTracks, track) {
-  return dispatch => {
-    dispatch(addTrack(track));
   };
 }

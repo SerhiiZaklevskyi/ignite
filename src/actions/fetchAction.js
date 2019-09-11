@@ -2,6 +2,7 @@ export const MUSIC_REQUEST = "MUSIC_REQUEST";
 export const MUSIC_RESPONSE = "MUSIC_RESPONSE";
 export const MUSIC_ERROR = "MUSIC_ERROR";
 export const GET_INPUT = "GET INPUT";
+export const CLEAR_RESULTS = "CLEAR_ERROR";
 
 export function musicRequest() {
   return {
@@ -23,9 +24,15 @@ export function musicError(error) {
   };
 }
 
-export function getInput(inputValue) {
+export function getInput(input) {
   return {
     type: GET_INPUT,
-    payload: inputValue
+    payload: input
+  };
+}
+
+export function clearResults() {
+  return {
+    type: CLEAR_RESULTS
   };
 }

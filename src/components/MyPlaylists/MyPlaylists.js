@@ -11,9 +11,10 @@ class MyPlaylists extends React.Component {
       <div className={styles.wrapper}>
         <div className={styles.MyPlayList}>
           <MyPlayList
-            tracks={this.props.tracks}
-            onRemove={this.props.onRemove}
+            savedTracks={this.props.savedTracks}
+            removeTrack={this.props.removeTrack}
             nameUpdate={this.props.nameUpdate}
+            nameValue={this.props.nameValue}
           />
         </div>
       </div>
