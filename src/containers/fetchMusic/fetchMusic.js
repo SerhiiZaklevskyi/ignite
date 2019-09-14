@@ -2,7 +2,7 @@ import {
   musicRequest,
   musicResponse,
   musicError
-} from "../../actions/fetchAction";
+} from "../../../../actions/fetchAction";
 
 export function fetchMusic(inputValue) {
   return dispatch => {

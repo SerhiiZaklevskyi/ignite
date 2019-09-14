@@ -1,4 +1,4 @@
-import {SAVE_PLAYLIST} from "../actions/savePlaylistAction";
+import {SAVE_PLAYLIST, REMOVE_MY_TRACK} from "../actions/savePlaylistAction";
 
 const initialState = {
   savedPlaylist: []
@@ -10,6 +10,13 @@ export function savePlaylistReducer(state = initialState, action) {
       return {
         ...state,
         savedPlaylist: action.payload
+      };
+    case REMOVE_MY_TRACK:
+      return {
+        ...state,
+        savedPlaylist: [
+          ...state.savedPlaylist.filter(item => item !== action.payload)
+        ]
       };
     default:
       return state;

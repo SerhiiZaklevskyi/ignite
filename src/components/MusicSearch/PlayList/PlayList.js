@@ -1,7 +1,14 @@
 import React from "react";
 import styles from "./PlayList.module.css";
-
+import {connect} from "react-redux";
 import TrackList from "../../MusicSearch/TrackList/TrackList.js";
+import {
+  saveName,
+  SaveMsgDisplay,
+  clearPlaylist,
+  removeTrack
+} from "../../../actions/trackAction";
+import {savePlaylist} from "../../../actions/savePlaylistAction";
 class PlayList extends React.Component {
   constructor(props) {
     super(props);
@@ -47,4 +54,24 @@ class PlayList extends React.Component {
   }
 }
 
-export default PlayList;
+const mapStateToProps = state => {
+  return {
+    playlistTracks: state.trackAction.playlistTracks,
+    saveMsg: state.trackAction.saveMsg
+  };
+};
+
+const MapDispatchToProps = dispatch => {
+  return {
+    savePlaylist: playlist => dispatch(savePlaylist(playlist)),
+    saveName: nameValue => dispatch(saveName(nameValue)),
+    SaveMsgDisplay: saveMsg => dispatch(SaveMsgDisplay(saveMsg)),
+    clearPlaylist: () => dispatch(clearPlaylist()),
+    removeTrack: track => dispatch(removeTrack(track))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  MapDispatchToProps
+)(PlayList);

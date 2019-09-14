@@ -1,5 +1,9 @@
 import React from "react";
+import {connect} from "react-redux";
 import styles from "./SearchBar.module.css";
+import {fetchMusic} from "./fetchMusic/fetchMusic";
+import {getInput, clearResults} from "../../../actions/fetchAction";
+import {newSearch} from "../../../actions/trackAction";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -15,7 +19,7 @@ class SearchBar extends React.Component {
   }
 
   search() {
-    this.props.search(this.props.inputValue);
+    this.props.fetchMusic(this.props.inputValue);
     this.props.newSearch();
     this.props.clearResults();
   }
@@ -50,4 +54,22 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+const mapStateToProps = state => {
+  return {
+    inputValue: state.fetchMusic.searchValue
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchMusic: inputValue => dispatch(fetchMusic(inputValue)),
+    getInput: input => dispatch(getInput(input)),
+    newSearch: () => dispatch(newSearch()),
+    clearResults: () => dispatch(clearResults())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SearchBar);

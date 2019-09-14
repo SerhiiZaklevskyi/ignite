@@ -45,8 +45,7 @@ export function trackReducer(state = initialState, action) {
     case NEW_SEARCH:
       return {
         ...state,
-        saveMsg: "",
-        nameValue: "New Playlist"
+        saveMsg: ""
       };
 
     default:
